@@ -1,0 +1,77 @@
+{
+    "version": "2",
+    "templates": [
+        {
+            "type": 3,
+            "title": "Archikart Elastic Stack",
+            "name": "archikart elastic stack",
+            "note": "<b>Archikart Elastic Stack.<b>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.",
+            "description": "Stellt den Elastic Stack für die neue globale Suche im Archikart bereit.",
+            "categories": [
+                "search, elastic, globalsearch"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://git.archikart.de/archikart/static",
+                "stackfile": "docker-compose.elstack.yml"
+            },
+            "env": [
+                {
+                    "name": "ARCHIKART_VERSION",
+                    "label": "ARCHIKART_VERSION",
+                    "default": "latest",
+                    "description": "Angabe zur Version des Archikart Elastic Stack, latest oder spezifische Version möglich."
+                },
+                {
+                    "name": "ELASTIC_PASSWORD",
+                    "label": "ELASTIC_PASSWORD",
+                    "default": "",
+                    "description": "Passwort für die Authentifizierung mit Elastic. Wird auch bei der Anmeldung im AK4 Elastic Service benötigt."
+                },
+                {
+                    "name": "LOGSTASH_INTERNAL_PASSWORD",
+                    "label": "LOGSTASH_INTERNAL_PASSWORD",
+                    "default": "",
+                    "description": "Intern von Logstash verwendetes Passwort."
+                },
+                {
+                    "name": "BEATS_SYSTEM_PASSWORD",
+                    "label": "BEATS_SYSTEM_PASSWORD",
+                    "default": "",
+                    "description": "Intern von Beats verwendetes Passwort."
+                },
+                {
+                    "name": "ELASTIC_JVM_MEMORY",
+                    "label": "ELASTIC_JVM_MEMORY",
+                    "default": "1",
+                    "description": "Bestimmt die Arbeitsspeichermenge in GByte der Elastic JVM, sollte mindestens 1 sein."
+                },
+                {
+                    "name": "ELASTIC_CONTAINER_MEMORY",
+                    "label": "ELASTIC_CONTAINER_MEMORY",
+                    "default": "2",
+                    "description": "Bestimmt die maximale Arbeitsspeichermenge in GByte des Elastic Container, sollte mindestens ELASTIC_JVM_MEMORY + 1 sein."
+                },
+                {
+                    "name": "LOGSTASH_JVM_MEMORY",
+                    "label": "LOGSTASH_JVM_MEMORY",
+                    "default": "2",
+                    "description": "Bestimmt die Arbeitsspeichermenge in GByte der Logstash JVM, sollte mindestens 2 sein."
+                },
+                {
+                    "name": "CRON_SCHEDULE",
+                    "label": "CRON_SCHEDULE",
+                    "default": "0 2 * * *",
+                    "description": "Bestimmt die Zeit zu welcher das Elastic alle Daten Neu einliest."
+                },
+                {
+                    "name": "NETWORK_NAME",
+                    "label": "NETWORK_NAME",
+                    "default": "archikartnet",
+                    "description": "Name des internen Docker Netz. Nur Container im gleichen Netzwerk können miteinander kommunizieren."
+                }
+            ]
+        }
+    ]
+}
