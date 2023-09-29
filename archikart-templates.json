@@ -13,7 +13,7 @@
             "platform": "linux",
             "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
             "repository": {
-                "url": "https://git.archikart.de/archikart/static",
+                "url": "https://raw.githubusercontent.com/archikartsoftwareag/portainer-templates/",
                 "stackfile": "docker-compose.elstack.yml"
             },
             "env": [
