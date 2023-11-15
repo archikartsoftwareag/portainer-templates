@@ -4,23 +4,23 @@
         {
             "type": 3,
             "title": "Archikart Elastic Stack",
-            "name": "archikart elastic stack",
-            "note": "<b>Archikart Elastic Stack.<b>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.",
-            "description": "Stellt den Elastic Stack für die neue globale Suche im Archikart bereit.",
+            "name": "AK_Elastic",
+            "note": "<b>Archikart Elastic Stack.</b><br>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.<br>Der Name des zugehörigen Volumes (Speicherort der Elastic Daten für die Suche) ist <i>elasticsearch</i>,<br>wobei diesem der Name des Stacks vorangeht. Beispiel ak_elastic_elasticsearch.<br>Bitte beachten Sie das eine <i>latest</i> Version von uns nicht bereitgestellt wird.",
+            "description": "Stellt den Archikart Elastic Stack für die Nutzung der Globalen Suche im AK4 mit Elastic bereit.",
             "categories": [
                 "search, elastic, globalsearch"
             ],
             "platform": "linux",
             "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
             "repository": {
-                "url": "https://github.com/archikartsoftwareag/portainer-templates",
+                "url": "https://git.archikart.de/archikart/static",
                 "stackfile": "docker-compose.elstack.yml"
             },
             "env": [
                 {
                     "name": "ARCHIKART_VERSION",
                     "label": "ARCHIKART_VERSION",
-                    "default": "latest",
+                    "default": "4.75.22",
                     "description": "Angabe zur Version des Archikart Elastic Stack, latest oder spezifische Version möglich."
                 },
                 {
