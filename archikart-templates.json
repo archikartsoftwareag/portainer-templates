@@ -20,7 +20,7 @@
                 {
                     "name": "ARCHIKART_VERSION",
                     "label": "ARCHIKART_VERSION",
-                    "default": "4.75.22",
+                    "default": "4.75.26",
                     "description": "Angabe zur Version des Archikart Elastic Stack, latest oder spezifische Version möglich."
                 },
                 {
