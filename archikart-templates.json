@@ -72,6 +72,48 @@
                     "description": "Name des internen Docker Netz. Nur Container im gleichen Netzwerk können miteinander kommunizieren."
                 }
             ]
+        },
+        {
+            "type": 3,
+            "title": "Archikart Alkis v76",
+            "name": "akalkis_v76",
+            "note": "<b>Archikart Alkis v76<b><br>Nur für interne Tests.",
+            "description": "Stellt den Archikart Alkis Stack für die neue globale Suche im Archikart bereit.",
+            "categories": [
+                "alkis"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://github.com/archikartsoftwareag/portainer-templates",
+                "stackfile": "docker-compose.alkis_v76.yml"
+            },
+            "env": [
+                {
+                    "name": "NETWORK_NAME",
+                    "label": "NETWORK_NAME",
+                    "default": "akalkisnet",
+                    "description": "Name des internen Docker Netz. Nur Container im gleichen Netzwerk können miteinander kommunizieren."
+                },
+                {
+                    "name": "POSTGRES_Port",
+                    "label": "POSTGRES_Port",
+                    "default": "5432",
+                    "description": "Der Port für die Kommunikation mit der Postgres Datenbank. Ändern Sie ggf. den gesetzten default Port."
+                },
+                {
+                    "name": "ALKIS_GID6_PORT",
+                    "label": "ALKIS_GID6_PORT",
+                    "default": "10622",
+                    "description": "Der Port für die Kommunikation mit der alkis_gid6 Instanz. Ändern Sie ggf. den gesetzten default Port."
+                },
+                {
+                    "name": "ALKIS_GID7_PORT",
+                    "label": "ALKIS_GID7_PORT",
+                    "default": "10722",
+                    "description": "Der Port für die Kommunikation mit der alkis_gid7 Instanz. Ändern Sie ggf. den gesetzten default Port."
+                }
+            ]
         }
     ]
 }
