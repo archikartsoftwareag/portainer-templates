@@ -72,6 +72,68 @@
                     "description": "Name des internen Docker Netz. Nur Container im gleichen Netzwerk können miteinander kommunizieren."
                 }
             ]
+        },
+        {
+            "type": 3,
+            "title": "Archikart ALKIS 4.76",
+            "name": "archikart_alkis",
+            "note": "<b>Archikart ALKIS 4.76</b><br>Passend zum ARCHIKART ALKIS-Import 4.76.x",
+            "description": "Stellt den Archikart ALKIS Datastore bereit.",
+            "categories": [
+                "alkis",
+                "archikart"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://github.com/archikartsoftwareag/portainer-templates",
+                "stackfile": "docker-compose.alkis_v76.yml"
+            },
+            "env": [
+                {
+                    "name": "ALKIS_POSTGIS_PORT",
+                    "label": "Datastore Port",
+                    "default": "5432",
+                    "description": "Der Port für die Kommunikation mit dem Datastore. Ändern Sie ggf. den gesetzten default Port."
+                },
+                {
+                    "name": "ALKIS_GID7_PORT",
+                    "label": "ALKIS-Import Port",
+                    "default": "10722",
+                    "description": "Der Port für die Kommunikation mit der ALKIS Instanz. Ändern Sie ggf. den gesetzten default Port."
+                }
+            ]
+        },
+        {
+            "type": 3,
+            "title": "Archikart ALKIS 4.77",
+            "name": "archikart_alkis",
+            "note": "<b>Archikart ALKIS 4.77</b><br>Passend zum ARCHIKART ALKIS-Import 4.77.x",
+            "description": "Stellt den Archikart ALKIS Datastore bereit.",
+            "categories": [
+                "alkis",
+                "archikart"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://github.com/archikartsoftwareag/portainer-templates",
+                "stackfile": "docker-compose.alkis_v77.yml"
+            },
+            "env": [
+                {
+                    "name": "ALKIS_POSTGIS_PORT",
+                    "label": "Datastore Port",
+                    "default": "5432",
+                    "description": "Der Port für die Kommunikation mit dem Datastore. Ändern Sie ggf. den gesetzten default Port."
+                },
+                {
+                    "name": "ALKIS_GID7_PORT",
+                    "label": "ALKIS-Import Port",
+                    "default": "10722",
+                    "description": "Der Port für die Kommunikation mit der ALKIS Instanz. Ändern Sie ggf. den gesetzten default Port."
+                }
+            ]
         }
     ]
 }
