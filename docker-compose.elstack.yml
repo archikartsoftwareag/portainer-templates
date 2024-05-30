@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   elasticsetup:
-    image: docker.archikart.de:5000/archikart/elasticsetup:${ARCHIKART_VERSION}
+    image: docker.archikart.de/archikart/elasticsetup:${ARCHIKART_VERSION}
     init: true
     environment:
       ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
@@ -14,7 +14,7 @@ services:
       - elasticsearch
 
   elasticsearch:
-    image: docker.archikart.de:5000/archikart/elasticsearch:${ARCHIKART_VERSION}
+    image: docker.archikart.de/archikart/elasticsearch:${ARCHIKART_VERSION}
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data:Z
     ports:
@@ -39,7 +39,7 @@ services:
         hard: 200000
 
   logstash:
-    image: docker.archikart.de:5000/archikart/logstash:${ARCHIKART_VERSION}
+    image: docker.archikart.de/archikart/logstash:${ARCHIKART_VERSION}
     ports:
       - 5044:5044
       - 50000:50000/tcp
