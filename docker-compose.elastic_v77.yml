@@ -1,0 +1,69 @@
+version: "3.7"
+
+services:
+  elasticsetup:
+    image: docker.archikart.de/archikart/elasticsetup_v77:latest
+    init: true
+    environment:
+      KIBANA_SYSTEM_PASSWORD: ${ELASTIC_PASSWORD}
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+      LOGSTASH_INTERNAL_PASSWORD: ${ELASTIC_PASSWORD}
+      BEATS_SYSTEM_PASSWORD: ${ELASTIC_PASSWORD}
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+  elasticsearch:
+    image: docker.archikart.de/archikart/elasticsearch_v77:latest
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data:Z
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      node.name: elasticsearch
+      discovery.type: single-node
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+      ES_JAVA_OPTS: "-Xms${ELASTIC_JVM_MEMORY}g -Xmx${ELASTIC_JVM_MEMORY}g -Dlog4j2.formatMsgNoLookups=true"
+      bootstrap.memory_lock: "true"
+    networks:
+      - elk
+    restart: unless-stopped
+    # double of Xmx1g
+    mem_limit: ${ELASTIC_CONTAINER_MEMORY}g
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 200000
+        hard: 200000
+
+  logstash:
+    image: docker.archikart.de/archikart/logstash_v77:latest
+    ports:
+      - 5044:5044
+      - 50000:50000/tcp
+      - 50000:50000/udp
+      - 9600:9600
+      # tcp input logs
+      - "9201:5045/tcp"
+    environment:
+      LS_JAVA_OPTS: "-Xms${LOGSTASH_JVM_MEMORY}g -Xmx${LOGSTASH_JVM_MEMORY}g -Dlog4j2.formatMsgNoLookups=true"
+      CRON_SCHEDULE: ${CRON_SCHEDULE}
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+      LOGSTASH_INTERNAL_PASSWORD: ${ELASTIC_PASSWORD}
+    networks:
+      - elk
+    depends_on:
+      elasticsetup:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+networks:
+  elk:
+    name: ${NETWORK_NAME}
+
+volumes:
+  elasticsearch:
