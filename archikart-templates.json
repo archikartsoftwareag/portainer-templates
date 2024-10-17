@@ -5,8 +5,8 @@
             "type": 3,
             "title": "Archikart Elastic 4.77",
             "name": "archikart_elastic",
-            "note": "<b>Archikart Elastic 4.77</b><br>Passend für ARCHIKART 4.77.x.</b><br>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.<br>Der Name des zugehörigen Volumes (Speicherort der Elastic Daten für die Suche) ist <i>elasticsearch</i>,<br>wobei diesem der Name des Stacks vorangeht. Beispiel ak_elastic_elasticsearch.<br>Bitte beachten Sie das eine <i>latest</i> Version von uns zur Zeit nicht bereitgestellt wird.<br> Alle Felder müssen ausgefüllt sein.",
-            "description": "Stellt den Archikart Elastic Stack für die Nutzung der Globalen Suche im AK4 mit Elastic bereit.",
+            "note": "<b>Archikart Elastic 4.77</b><br>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.<br>Der Name des zugehörigen Volumes (Speicherort der Elastic Daten für die Suche) ist <i>elasticsearch</i>,<br>wobei diesem der Name des Stacks vorangeht. Beispiel ak_elastic_elasticsearch.<br>Bitte beachten Sie das eine <i>latest</i> Version von uns zur Zeit nicht bereitgestellt wird.<br> Alle Felder müssen ausgefüllt sein.",
+            "description": "Aktualisiert am 17.10.2024. Für Archikart ab 4.77.19",
             "categories": [
                 "search, elastic, globalsearch"
             ],
@@ -22,6 +22,18 @@
                     "label": "Elastic Passwort",
                     "default": "",
                     "description": "Passwort für die Authentifizierung mit Elastic. Wird auch bei der Anmeldung im AK4 Elastic Service benötigt."
+                },
+                {
+                    "name": "ELASTIC_PORT",
+                    "label": "Elasticsearch Netzwerk Port",
+                    "default": "9200",
+                    "description": "Über diesen Port ist der Elastic Service erreichbar. Default ist 9200."
+                },
+                {
+                    "name": "LOGSTASH_PORT",
+                    "label": "Logstash Netzwerk Port",
+                    "default": "9201",
+                    "description": "Über diesen Port ist der Logstash Service erreichbar. Default ist 9201."
                 },
                 {
                     "name": "ELASTIC_JVM_MEMORY",
@@ -131,8 +143,8 @@
             "type": 3,
             "title": "Archikart ALKIS 4.77",
             "name": "archikart_alkis",
-            "note": "<b>Archikart ALKIS 4.77</b><br>Passend zum ARCHIKART ALKIS-Import 4.77.x",
-            "description": "Stellt den Archikart ALKIS Datastore bereit.",
+            "note": "<b>Archikart ALKIS 4.77</b>",
+            "description": "Aktualisiert am 19.09.2024. Für ALKIS ab 4.77.8",
             "categories": [
                 "alkis",
                 "archikart"

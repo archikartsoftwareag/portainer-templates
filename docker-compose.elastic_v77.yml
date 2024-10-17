@@ -19,7 +19,7 @@ services:
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data:Z
     ports:
-      - 9200:9200
+      - ${ELASTIC_PORT:-9200}:9200
       - 9300:9300
     environment:
       node.name: elasticsearch
@@ -48,7 +48,7 @@ services:
       - 50000:50000/udp
       - 9600:9600
       # tcp input logs
-      - "9201:5045/tcp"
+      - "${LOGSTASH_PORT:-9201}:5045/tcp"
     environment:
       LS_JAVA_OPTS: "-Xms${LOGSTASH_JVM_MEMORY}g -Xmx${LOGSTASH_JVM_MEMORY}g -Dlog4j2.formatMsgNoLookups=true"
       CRON_SCHEDULE: ${CRON_SCHEDULE}
