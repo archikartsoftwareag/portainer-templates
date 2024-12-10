@@ -3,6 +3,103 @@
     "templates": [
         {
             "type": 3,
+            "title": "Archikart Elastic 4.78",
+            "name": "archikart_elastic",
+            "note": "<b>Archikart Elastic 4.78</b><br>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.<br>Der Name des zugehörigen Volumes (Speicherort der Elastic Daten für die Suche) ist <i>elasticsearch</i>,<br>wobei diesem der Name des Stacks vorangeht. Beispiel ak_elastic_elasticsearch.<br>Bitte beachten Sie das eine <i>latest</i> Version von uns zur Zeit nicht bereitgestellt wird.<br> Alle Felder müssen ausgefüllt sein.",
+            "description": "Aktualisiert am 17.10.2024.",
+            "categories": [
+                "search, elastic, globalsearch"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://github.com/archikartsoftwareag/portainer-templates",
+                "stackfile": "docker-compose.elastic_v77.yml"
+            },
+            "env": [
+                {
+                    "name": "ELASTIC_PASSWORD",
+                    "label": "Elastic Passwort",
+                    "default": "",
+                    "description": "Passwort für die Authentifizierung mit Elastic. Wird auch bei der Anmeldung im AK4 Elastic Service benötigt."
+                },
+                {
+                    "name": "ELASTIC_PORT",
+                    "label": "Elasticsearch Netzwerk Port",
+                    "default": "9200",
+                    "description": "Über diesen Port ist der Elastic Service erreichbar. Default ist 9200."
+                },
+                {
+                    "name": "LOGSTASH_PORT",
+                    "label": "Logstash Netzwerk Port",
+                    "default": "9201",
+                    "description": "Über diesen Port ist der Logstash Service erreichbar. Default ist 9201."
+                },
+                {
+                    "name": "ELASTIC_JVM_MEMORY",
+                    "label": "Elastic JVM_MEMORY",
+                    "default": "1",
+                    "description": "Bestimmt die Arbeitsspeichermenge in GByte der Elastic JVM, sollte mindestens 1 sein."
+                },
+                {
+                    "name": "ELASTIC_CONTAINER_MEMORY",
+                    "label": "Elastic CONTAINER_MEMORY",
+                    "default": "2",
+                    "description": "Bestimmt die maximale Arbeitsspeichermenge in GByte des Elastic Container, sollte mindestens ELASTIC_JVM_MEMORY + 1 sein."
+                },
+                {
+                    "name": "LOGSTASH_JVM_MEMORY",
+                    "label": "Logstash JVM_MEMORY",
+                    "default": "2",
+                    "description": "Bestimmt die Arbeitsspeichermenge in GByte der Logstash JVM, sollte mindestens 2 sein."
+                },
+                {
+                    "name": "CRON_SCHEDULE",
+                    "label": "Cron Schedule",
+                    "default": "0 2 * * *",
+                    "description": "Bestimmt die Zeit zu welcher das Elastic alle Daten Neu einliest."
+                },
+                {
+                    "name": "NETWORK_NAME",
+                    "label": "Netzwerk Name",
+                    "default": "archikartnet",
+                    "description": "Name des internen Docker Netz. Nur Container im gleichen Netzwerk können miteinander kommunizieren."
+                }
+            ]
+        },
+        {
+            "type": 3,
+            "title": "Archikart ALKIS 4.78",
+            "name": "archikart_alkis",
+            "note": "<b>Archikart ALKIS 4.78</b>",
+            "description": "Aktualisiert am 05.11.2024.",
+            "categories": [
+                "alkis",
+                "archikart"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://github.com/archikartsoftwareag/portainer-templates",
+                "stackfile": "docker-compose.alkis_v77.yml"
+            },
+            "env": [
+                {
+                    "name": "ALKIS_POSTGIS_PORT",
+                    "label": "Datastore Port",
+                    "default": "5432",
+                    "description": "Der Port für die Kommunikation mit dem Datastore. Ändern Sie ggf. den gesetzten default Port."
+                },
+                {
+                    "name": "ALKIS_GID7_PORT",
+                    "label": "ALKIS-Import Port",
+                    "default": "10722",
+                    "description": "Der Port für die Kommunikation mit der ALKIS Instanz. Ändern Sie ggf. den gesetzten default Port."
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Archikart Elastic 4.77",
             "name": "archikart_elastic",
             "note": "<b>Archikart Elastic 4.77</b><br>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.<br>Der Name des zugehörigen Volumes (Speicherort der Elastic Daten für die Suche) ist <i>elasticsearch</i>,<br>wobei diesem der Name des Stacks vorangeht. Beispiel ak_elastic_elasticsearch.<br>Bitte beachten Sie das eine <i>latest</i> Version von uns zur Zeit nicht bereitgestellt wird.<br> Alle Felder müssen ausgefüllt sein.",
@@ -69,78 +166,6 @@
         },
         {
             "type": 3,
-            "title": "Archikart Elastic 4.75 / 4.76",
-            "name": "AK_Elastic",
-            "note": "<b>Archikart Elastic 4.75 / 4.76</b><br>Passend für ARCHIKART 4.75.x / 4.76.x<b>Archikart Elastic Stack.</b><br>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.<br>Der Name des zugehörigen Volumes (Speicherort der Elastic Daten für die Suche) ist <i>elasticsearch</i>,<br>wobei diesem der Name des Stacks vorangeht. Beispiel ak_elastic_elasticsearch.<br>Bitte beachten Sie das eine <i>latest</i> Version von uns zur Zeit nicht bereitgestellt wird.<br> Alle Felder müssen ausgefüllt sein.",
-            "description": "Stellt den Archikart Elastic Stack für die Nutzung der Globalen Suche im AK4 mit Elastic bereit.",
-            "categories": [
-                "search, elastic, globalsearch"
-            ],
-            "platform": "linux",
-            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
-            "repository": {
-                "url": "https://github.com/archikartsoftwareag/portainer-templates",
-                "stackfile": "docker-compose.elstack.yml"
-            },
-            "env": [
-                {
-                    "name": "ARCHIKART_VERSION",
-                    "label": "ARCHIKART_VERSION",
-                    "default": "4.75.26",
-                    "description": "Angabe zur Version des Archikart Elastic Stack. Dies ist die aktuellste Version des Stacks für Archikart 4.75 & 4.76."
-                },
-                {
-                    "name": "ELASTIC_PASSWORD",
-                    "label": "ELASTIC_PASSWORD",
-                    "default": "",
-                    "description": "Passwort für die Authentifizierung mit Elastic. Wird auch bei der Anmeldung im AK4 Elastic Service benötigt."
-                },
-                {
-                    "name": "LOGSTASH_INTERNAL_PASSWORD",
-                    "label": "LOGSTASH_INTERNAL_PASSWORD",
-                    "default": "",
-                    "description": "Intern von Logstash verwendetes Passwort."
-                },
-                {
-                    "name": "BEATS_SYSTEM_PASSWORD",
-                    "label": "BEATS_SYSTEM_PASSWORD",
-                    "default": "",
-                    "description": "Intern von Beats verwendetes Passwort."
-                },
-                {
-                    "name": "ELASTIC_JVM_MEMORY",
-                    "label": "ELASTIC_JVM_MEMORY",
-                    "default": "1",
-                    "description": "Bestimmt die Arbeitsspeichermenge in GByte der Elastic JVM, sollte mindestens 1 sein."
-                },
-                {
-                    "name": "ELASTIC_CONTAINER_MEMORY",
-                    "label": "ELASTIC_CONTAINER_MEMORY",
-                    "default": "2",
-                    "description": "Bestimmt die maximale Arbeitsspeichermenge in GByte des Elastic Container, sollte mindestens ELASTIC_JVM_MEMORY + 1 sein."
-                },
-                {
-                    "name": "LOGSTASH_JVM_MEMORY",
-                    "label": "LOGSTASH_JVM_MEMORY",
-                    "default": "2",
-                    "description": "Bestimmt die Arbeitsspeichermenge in GByte der Logstash JVM, sollte mindestens 2 sein."
-                },
-                {
-                    "name": "CRON_SCHEDULE",
-                    "label": "CRON_SCHEDULE",
-                    "default": "0 2 * * *",
-                    "description": "Bestimmt die Zeit zu welcher das Elastic alle Daten Neu einliest."
-                },
-                {
-                    "name": "NETWORK_NAME",
-                    "label": "NETWORK_NAME",
-                    "default": "archikartnet",
-                    "description": "Name des internen Docker Netz. Nur Container im gleichen Netzwerk können miteinander kommunizieren."
-                }
-            ]
-        },
-        {
-            "type": 3,
             "title": "Archikart ALKIS 4.77",
             "name": "archikart_alkis",
             "note": "<b>Archikart ALKIS 4.77</b>",
@@ -154,37 +179,6 @@
             "repository": {
                 "url": "https://github.com/archikartsoftwareag/portainer-templates",
                 "stackfile": "docker-compose.alkis_v77.yml"
-            },
-            "env": [
-                {
-                    "name": "ALKIS_POSTGIS_PORT",
-                    "label": "Datastore Port",
-                    "default": "5432",
-                    "description": "Der Port für die Kommunikation mit dem Datastore. Ändern Sie ggf. den gesetzten default Port."
-                },
-                {
-                    "name": "ALKIS_GID7_PORT",
-                    "label": "ALKIS-Import Port",
-                    "default": "10722",
-                    "description": "Der Port für die Kommunikation mit der ALKIS Instanz. Ändern Sie ggf. den gesetzten default Port."
-                }
-            ]
-        },
-        {
-            "type": 3,
-            "title": "Archikart ALKIS 4.76",
-            "name": "archikart_alkis",
-            "note": "<b>Archikart ALKIS 4.76</b><br>Passend zum ARCHIKART ALKIS-Import 4.76.x",
-            "description": "Stellt den Archikart ALKIS Datastore bereit.",
-            "categories": [
-                "alkis",
-                "archikart"
-            ],
-            "platform": "linux",
-            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
-            "repository": {
-                "url": "https://github.com/archikartsoftwareag/portainer-templates",
-                "stackfile": "docker-compose.alkis_v76.yml"
             },
             "env": [
                 {
