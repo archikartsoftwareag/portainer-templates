@@ -81,7 +81,7 @@
             "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
             "repository": {
                 "url": "https://github.com/archikartsoftwareag/portainer-templates",
-                "stackfile": "docker-compose.alkis_v77.yml"
+                "stackfile": "docker-compose.alkis_v78.yml"
             },
             "env": [
                 {
