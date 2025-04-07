@@ -20,7 +20,6 @@ services:
       - elasticsearch:/usr/share/elasticsearch/data:Z
     ports:
       - ${ELASTIC_PORT:-9200}:9200
-      - 9300:9300
     environment:
       node.name: elasticsearch
       discovery.type: single-node
@@ -43,11 +42,6 @@ services:
   logstash:
     image: docker.archikart.de/archikart/logstash_v77:latest
     ports:
-      - 5044:5044
-      - 50000:50000/tcp
-      - 50000:50000/udp
-      - 9600:9600
-      # tcp input logs
       - "${LOGSTASH_PORT:-9201}:5045/tcp"
     environment:
       LS_JAVA_OPTS: "-Xms${LOGSTASH_JVM_MEMORY}g -Xmx${LOGSTASH_JVM_MEMORY}g -Dlog4j2.formatMsgNoLookups=true"
