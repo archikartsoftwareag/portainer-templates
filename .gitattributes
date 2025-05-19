@@ -1,0 +1,4 @@
+# Declare files that will always have LF line endings on checkout.
+*.json text eol=lf
+*.yml text eol=lf
+*.env text eol=lf
