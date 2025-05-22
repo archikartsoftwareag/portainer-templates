@@ -2,6 +2,14 @@
 
 This repostiory contains our portainer template and docker-compose files
 
+## Anmerkungen
+
+- 22.05.2025 - Die Versionierung unserer Elastic Images wurde verändert. Es gibt jetzt keine Images mit Endungen wie „_v77“ mehr. Je Archikart-Version gibt es nun zwei Versionsschemata (Major.Minor und Major.Minor.Patch).
+  - Nachfolgendes Beispiel ist für Archikart 4.77 und das Elastic-Image:
+    - docker.archikart.de/archikart/elastic:4.77 – „4.77“ entspricht der „latest“-Version für Archikart 4.77 und wird auch als Standard im Portainer-Template verwendet.
+    - docker.archikart.de/archikart/elastic:4.77.0 – „4.77.0“ entspricht einer bestimmten Version für Archikart 4.77 und kann verwendet werden, wenn eine bestimmte Version benötigt wird. Dies __kann__ erforderlich sein, falls es innerhalb einer Archikart-Version zu Änderungen kommt. Eine neue Version bedeutet jedoch nicht zwangsläufig, dass auch eine bestimmte Archikart-Version benötigt wird. Die aktuellste Version (hier 4.77.0) ist immer identisch mit der entsprechenden „latest-Version" (hier also die 4.77).
+  - Bitte beachten Sie, dass es auch ein echtes „latest“ (docker.archikart.de/archikart/elastic:latest) gibt, das Archikart-versionsunabhängig ist. Dieses sollte jedoch produktiv nicht verwendet werden.
+
 ## Kunden ohne Internet auf ihrem Docker Host Server
 
 ### Voraussetzungen und Allgemeines

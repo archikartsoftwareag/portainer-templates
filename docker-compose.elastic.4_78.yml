@@ -1,8 +1,7 @@
-version: "3.7"
-
+# Archikart Elastic Stack für Archikart Version 4.78
 services:
   elasticsetup:
-    image: docker.archikart.de/archikart/elasticsetup_v77:latest
+    image: docker.archikart.de/archikart/elasticsetup:4.78
     init: true
     environment:
       KIBANA_SYSTEM_PASSWORD: ${ELASTIC_PASSWORD}
@@ -15,7 +14,7 @@ services:
       - elasticsearch
 
   elasticsearch:
-    image: docker.archikart.de/archikart/elasticsearch_v77:latest
+    image: docker.archikart.de/archikart/elasticsearch:4.78
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data:Z
     ports:
@@ -40,7 +39,7 @@ services:
         hard: 200000
 
   logstash:
-    image: docker.archikart.de/archikart/logstash_v77:latest
+    image: docker.archikart.de/archikart/logstash:4.78
     ports:
       - "${LOGSTASH_PORT:-9201}:5045/tcp"
     environment:
