@@ -2,6 +2,22 @@
 
 This repostiory contains our portainer template and docker-compose files
 
+## Hinweise zu Portainer
+
+- Bitte beachten Sie das aktuelle Portainer Versionen eine neue Template Version benötigen. Falls es bei Ihnen Probleme mit dem Template gibt, dann nutzen Sie bitte folgendes Template, welches Sie unter Portainer -> Settings -> App Templates -> URL einfügen können:
+
+neue v3 Version:
+
+``` sh
+https://raw.githubusercontent.com/archikartsoftwareag/portainer-templates/main/archikart-templates.v3.json
+```
+
+alte v2 Version:
+
+``` sh
+https://raw.githubusercontent.com/archikartsoftwareag/portainer-templates/main/archikart-templates.json
+```
+
 ## Anmerkungen
 
 - 22.05.2025 - Die Versionierung unserer Elastic Images wurde verändert. Es gibt jetzt keine Images mit Endungen wie „_v77“ mehr. Je Archikart-Version gibt es nun zwei Versionsschemata (Major.Minor und Major.Minor.Patch).
