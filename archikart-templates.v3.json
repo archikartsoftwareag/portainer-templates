@@ -106,7 +106,7 @@
             "title": "Archikart Elastic 4.77",
             "name": "archikart_elastic",
             "note": "<b>Archikart Elastic 4.77</b><br>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.<br>Der Name des zugehörigen Volumes (Speicherort der Elastic Daten für die Suche) ist <i>elasticsearch</i>,<br>wobei diesem der Name des Stacks vorangeht. Beispiel ak_elastic_elasticsearch.<br>Bitte beachten Sie das eine <i>latest</i> Version von uns zur Zeit nicht bereitgestellt wird.<br> Alle Felder müssen ausgefüllt sein.",
-            "description": "Aktualisiert am 17.10.2024. Für Archikart ab 4.77.19",
+            "description": "Aktualisiert am 22.05.2025. Für Archikart ab 4.77.19",
             "categories": [
                 "search, elastic, globalsearch"
             ],
