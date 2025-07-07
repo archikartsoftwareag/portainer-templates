@@ -198,6 +198,73 @@
                     "description": "Der Port für die Kommunikation mit der ALKIS Instanz. Ändern Sie ggf. den gesetzten default Port."
                 }
             ]
+        },
+        {
+            "id": 5,
+            "type": 3,
+            "title": "Archikart Elastic 4.79",
+            "name": "archikart_elastic",
+            "note": "<b>Archikart Elastic 4.79</b><br>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.<br>Der Name des zugehörigen Volumes (Speicherort der Elastic Daten für die Suche) ist <i>elasticsearch</i>,<br>wobei diesem der Name des Stacks vorangeht. Beispiel ak_elastic_elasticsearch.<br>Bitte beachten Sie das eine <i>latest</i> Version von uns zur Zeit nicht bereitgestellt wird.<br> Alle Felder müssen ausgefüllt sein.",
+            "description": "Für alle Archikart 4.79 Versionen.",
+            "categories": [
+                "search, elastic, globalsearch"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://github.com/archikartsoftwareag/portainer-templates",
+                "stackfile": "docker-compose.elastic.4_79.yml"
+            },
+            "env": [
+                {
+                    "name": "ELASTIC_PASSWORD",
+                    "label": "Elastic Passwort",
+                    "default": "",
+                    "description": "Passwort für die Authentifizierung mit Elastic. Wird auch bei der Anmeldung im AK4 Elastic Service benötigt."
+                },
+                {
+                    "name": "ELASTIC_PORT",
+                    "label": "Elasticsearch Netzwerk Port",
+                    "default": "9200",
+                    "description": "Über diesen Port ist der Elastic Service erreichbar. Default ist 9200."
+                },
+                {
+                    "name": "LOGSTASH_PORT",
+                    "label": "Logstash Netzwerk Port",
+                    "default": "9201",
+                    "description": "Über diesen Port ist der Logstash Service erreichbar. Default ist 9201."
+                },
+                {
+                    "name": "ELASTIC_JVM_MEMORY",
+                    "label": "Elastic JVM_MEMORY",
+                    "default": "1",
+                    "description": "Bestimmt die Arbeitsspeichermenge in GByte der Elastic JVM, sollte mindestens 1 sein."
+                },
+                {
+                    "name": "ELASTIC_CONTAINER_MEMORY",
+                    "label": "Elastic CONTAINER_MEMORY",
+                    "default": "2",
+                    "description": "Bestimmt die maximale Arbeitsspeichermenge in GByte des Elastic Container, sollte mindestens ELASTIC_JVM_MEMORY + 1 sein."
+                },
+                {
+                    "name": "LOGSTASH_JVM_MEMORY",
+                    "label": "Logstash JVM_MEMORY",
+                    "default": "2",
+                    "description": "Bestimmt die Arbeitsspeichermenge in GByte der Logstash JVM, sollte mindestens 2 sein."
+                },
+                {
+                    "name": "CRON_SCHEDULE",
+                    "label": "Cron Schedule",
+                    "default": "0 2 * * *",
+                    "description": "Bestimmt die Zeit zu welcher das Elastic alle Daten Neu einliest."
+                },
+                {
+                    "name": "NETWORK_NAME",
+                    "label": "Netzwerk Name",
+                    "default": "archikartnet",
+                    "description": "Name des internen Docker Netz. Nur Container im gleichen Netzwerk können miteinander kommunizieren."
+                }
+            ]
         }
     ]
 }
