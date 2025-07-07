@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   alkis:
-    image: docker.archikart.de/archikart/alkis_gid7_v79:latest
+    image: docker.archikart.de/archikart/alkis_gid7:4.79
     ports:
       - ${ALKIS_GID7_PORT}:22
     networks:
@@ -15,7 +15,7 @@ services:
     links:
       - "postgis:archikart-postgis"
   postgis:
-    image: docker.archikart.de/archikart/alkis_postgis_v79:latest
+    image: docker.archikart.de/archikart/alkis_postgis:4.79
     ports:
       - ${ALKIS_POSTGIS_PORT}:5432
     networks:
@@ -25,7 +25,7 @@ services:
     environment:
       POSTGRES_PASSWORD: archikart
     restart: unless-stopped
-    shm_size: '6gb'
+    shm_size: "6gb"
 volumes:
   alkis-filestore: {}
   pg-data: {}
