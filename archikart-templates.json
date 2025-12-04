@@ -3,6 +3,37 @@
     "templates": [
         {
             "type": 3,
+            "title": "Archikart ALKIS 4.80",
+            "name": "archikart_alkis",
+            "note": "<b>Archikart ALKIS 4.80</b>",
+            "description": "Für ALKIS ab 4.80.0",
+            "categories": [
+                "alkis",
+                "archikart"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://github.com/archikartsoftwareag/portainer-templates",
+                "stackfile": "docker-compose.alkis_v80.yml"
+            },
+            "env": [
+                {
+                    "name": "ALKIS_POSTGIS_PORT",
+                    "label": "Datastore Port",
+                    "default": "5432",
+                    "description": "Der Port für die Kommunikation mit dem Datastore. Ändern Sie ggf. den gesetzten default Port."
+                },
+                {
+                    "name": "ALKIS_GID7_PORT",
+                    "label": "ALKIS-Import Port",
+                    "default": "10722",
+                    "description": "Der Port für die Kommunikation mit der ALKIS Instanz. Ändern Sie ggf. den gesetzten default Port."
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Archikart Elastic 4.79",
             "name": "archikart_elastic",
             "note": "<b>Archikart Elastic 4.79</b><br>Ermöglicht die Nutzung der Globalen Suche im AK4 mit Elastic.<br>Der Name des zugehörigen Volumes (Speicherort der Elastic Daten für die Suche) ist <i>elasticsearch</i>,<br>wobei diesem der Name des Stacks vorangeht. Beispiel ak_elastic_elasticsearch.<br>Bitte beachten Sie das eine <i>latest</i> Version von uns zur Zeit nicht bereitgestellt wird.<br> Alle Felder müssen ausgefüllt sein.",

@@ -297,6 +297,38 @@
                     "description": "Der Port für die Kommunikation mit der ALKIS Instanz. Ändern Sie ggf. den gesetzten default Port."
                 }
             ]
+        },
+        {
+            "id": 7,
+            "type": 3,
+            "title": "Archikart ALKIS 4.80",
+            "name": "archikart_alkis",
+            "note": "<b>Archikart ALKIS 4.80</b>",
+            "description": "Für ALKIS ab 4.80.0",
+            "categories": [
+                "alkis",
+                "archikart"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://github.com/archikartsoftwareag/portainer-templates",
+                "stackfile": "docker-compose.alkis_v80.yml"
+            },
+            "env": [
+                {
+                    "name": "ALKIS_POSTGIS_PORT",
+                    "label": "Datastore Port",
+                    "default": "5432",
+                    "description": "Der Port für die Kommunikation mit dem Datastore. Ändern Sie ggf. den gesetzten default Port."
+                },
+                {
+                    "name": "ALKIS_GID7_PORT",
+                    "label": "ALKIS-Import Port",
+                    "default": "10722",
+                    "description": "Der Port für die Kommunikation mit der ALKIS Instanz. Ändern Sie ggf. den gesetzten default Port."
+                }
+            ]
         }
     ]
 }
