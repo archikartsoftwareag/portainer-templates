@@ -19,7 +19,7 @@ services:
     networks:
       - alkis-net
     volumes:
-      - pg-data:/var/lib/postgresql/data
+      - pg-data:/var/lib/postgresql
     environment:
       POSTGRES_PASSWORD: archikart
     restart: unless-stopped
