@@ -419,6 +419,41 @@
                     "description": "Der Port für die Kommunikation mit der ALKIS Instanz. Ändern Sie ggf. den gesetzten default Port."
                 }
             ]
+        },
+        {
+            "type": 3,
+            "title": "Arcane Testing - noch nicht freigegeben!",
+            "name": "arcane",
+            "note": "<b>Arcane</b> – Docker-Verwaltung mit vorkonfigurierten Archikart Templates. UI danach unter http://&lt;host&gt;:3552, Login arcane / arcane-admin (Passwortwechsel wird erzwungen).",
+            "description": "Arcane (Docker-Verwaltung) inkl. Archikart Template-Registry und Archikart Docker-Registry. Keys werden beim ersten Start automatisch erzeugt.",
+            "categories": [
+                "arcane",
+                "archikart"
+            ],
+            "platform": "linux",
+            "logo": "https://www.archikart.de/system/modules/de.archikart.homepage/resources/img/logo.png",
+            "repository": {
+                "url": "https://github.com/archikartsoftwareag/arcane-templates",
+                "stackfile": "arcane/compose.yaml"
+            },
+            "env": [
+                {
+                    "name": "DOCKER_REGISTRY_USER",
+                    "label": "Archikart Registry Benutzer",
+                    "description": "Benutzer für docker.archikart.de (siehe Handbuch). Leer lassen, um die Zugangsdaten später in Arcane unter Customization → Container Registries einzutragen."
+                },
+                {
+                    "name": "DOCKER_REGISTRY_PASSWORD",
+                    "label": "Archikart Registry Passwort",
+                    "description": "Passwort für docker.archikart.de (siehe Handbuch)."
+                },
+                {
+                    "name": "APP_URL",
+                    "label": "Arcane URL",
+                    "default": "http://localhost:3552",
+                    "description": "Adresse, unter der Arcane aufgerufen wird, z. B. http://dockerhost:3552."
+                }
+            ]
         }
     ]
 }
